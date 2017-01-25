@@ -44,6 +44,6 @@ class RouteMatch implements RouteMatchInterface{
    * @return RouteMatchInterface
    */
   public function merge(RouteMatchInterface $routeMatch){
-    return new self(array_merge($this->getParams(), $routeMatch->getParams()));
+    return new self(array_merge_recursive($this->getParams(), $routeMatch->getParams()));
   }
 }
