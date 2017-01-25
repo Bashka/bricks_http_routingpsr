@@ -28,4 +28,11 @@ class RouteMatchTest extends PHPUnit_Framework_TestCase{
     $this->assertEquals(['foo' => 'baz', 'test' => 'val'], $matchA->merge($matchB)->getParams());
     $this->assertEquals(['foo' => 'bar', 'test' => 'val'], $matchB->merge($matchA)->getParams());
   }
+
+  public function testMerge_shouldAddParams(){
+    $matchA = new RouteMatch(['foo' => 'bar']);
+    $matchB = new RouteMatch(['baz' => 'zar']);
+
+    $this->assertEquals(['foo' => 'bar', 'baz' => 'zar'], $matchA->merge($matchB)->getParams());
+  }
 }
